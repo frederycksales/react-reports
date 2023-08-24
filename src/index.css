@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Poppins:wght@400;600&display=swap');
+
+html,
+boddy,
+main,
+#root,
+.app,
+.content {
+  height: 100%;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+}
+
+.app {
+  display: flex;
+  position: relative;
+}
