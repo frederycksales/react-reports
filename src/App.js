@@ -1,6 +1,10 @@
 
 function App() {
-  return
+  return(
+    <div cassName="app">
+      
+    </div>
+  )
 }
 
 export default App;
