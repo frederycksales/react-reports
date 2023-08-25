@@ -74,14 +74,14 @@ export const themeSettings = (mode) => {
               main: colors.secondaryGrey[900],
             },
             warning: {
-              dark: colors.accentOrange[600],
+              dark: colors.accentOrange[800],
               main: colors.accentOrange[500],
-              light: colors.accentOrange[300],
+              light: colors.accentOrange[400],
             },
             info: {
-              dark: colors.accentCyan[600],
+              dark: colors.accentCyan[800],
               main: colors.accentCyan[500],
-              light: colors.accentCyan[300],
+              light: colors.accentCyan[400],
             },
             text: {
               primary: colors.secondaryGrey[200],
@@ -91,7 +91,7 @@ export const themeSettings = (mode) => {
             },
           } : {
             primary: {
-              main: colors.primaryBlue[400],
+              main: colors.primaryBlue[300],
             },
             secondary: {
               main: colors.secondaryGrey[600],

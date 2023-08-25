@@ -5,12 +5,12 @@ import {
   Menu as MenuIcon,
   Search,
   SettingsOutlined,
+  NotificationsNoneOutlined,
   PersonOutlined,
 } from "@mui/icons-material";
 import FlexBetween from "./FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "../state";
-import { themeSettings } from "../theme";
 import {
   AppBar,
   Button,
@@ -23,19 +23,16 @@ import {
   MenuItem,
   useTheme,
 } from "@mui/material";
-import { red } from "@mui/material/colors";
 
 const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
   const dispatch = useDispatch();
   const theme = useTheme();
-  const currentThemeSettings = themeSettings(theme.palette.mode);
-  const colors = currentThemeSettings.palette;
 
   return (
     <AppBar
       sx={{
         position: "static",
-        background: colors.secondary.main,
+        background: theme.palette.secondary.main,
         boxShadow: "none",
       }}
     >
@@ -43,7 +40,7 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
         {/* Esquerda */}
         <FlexBetween>
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-            <MenuIcon />
+            <MenuIcon sx={{color: theme.palette.secondary.contrastText,}}/>
           </IconButton>
           <FlexBetween
             backgroundColor={theme.palette.primary.light}
@@ -62,13 +59,16 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
         <FlexBetween gap="1.5rem">
           <IconButton onClick={() => dispatch(setMode())}>
             {theme.palette.mode === "dark" ? (
-              <DarkModeOutlined sx={{ fontSize: "25px" }} />
+              <DarkModeOutlined sx={{color: theme.palette.secondary.contrastText, fontSize: "25px" }} />
             ) : (
-              <LightModeOutlined sx={{ fontSize: "25px" }} />
+              <LightModeOutlined sx={{color: theme.palette.secondary.contrastText, fontSize: "25px" }} />
             )}
           </IconButton>
           <IconButton>
-            <SettingsOutlined sx={{ fontSize: "25px" }} />
+            <NotificationsNoneOutlined sx={{color: theme.palette.secondary.contrastText, fontSize: "25px" }} />
+          </IconButton>
+          <IconButton>
+            <SettingsOutlined sx={{color: theme.palette.secondary.contrastText, fontSize: "25px" }} />
           </IconButton>
         </FlexBetween>
       </Toolbar>
