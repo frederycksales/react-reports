@@ -74,30 +74,20 @@ export const themeSettings = (mode) => {
               main: colors.secondaryGrey[700],
             },
             neutral: {
-              dark: colors.tertiaryBlack[500],
-              light: colors.secondaryGrey[200],
-              mainBlack: colors.tertiaryBlack[400],
-              mainGrey: colors.secondaryGrey[400],
-              mainBlue: colors.primaryBlue[300],
+              main: colors.tertiaryBlack[500],
             },
-            accentWarm: {
+            warmAccent: {
               dark: colors.accentOrange[700],
               main: colors.accentOrange[500],
               light: colors.accentOrange[400],
             },
-            accentCool: {
+            coolAccent: {
               dark: colors.accentCyan[700],
               main: colors.accentCyan[500],
               light: colors.accentCyan[400],
             },
             background: {
               default: colors.tertiaryBlack[800],
-            },
-            text1: {
-              default: colors.secondaryGrey[300],
-            },
-            text2: {
-              default: colors.secondaryGrey[200],
             },
           }
         : {
@@ -108,30 +98,20 @@ export const themeSettings = (mode) => {
               main: colors.secondaryGrey[300],
             },
             neutral: {
-              dark: colors.tertiaryBlack[500],
-              light: colors.secondaryGrey[100],
-              mainBlack: colors.tertiaryBlack[300],
-              mainGrey: colors.secondaryGrey[300],
-              mainBlue: colors.primaryBlue[300],
+              main: colors.tertiaryBlack[500],
             },
-            accentWarm: {
+            warmAccent: {
               dark: colors.accentOrange[600],
               main: colors.accentOrange[500],
               light: colors.accentOrange[300],
             },
-            accentCool: {
+            coolAccent: {
               dark: colors.accentCyan[600],
               main: colors.accentCyan[500],
               light: colors.accentCyan[300],
             },
             background: {
               default: colors.secondaryGrey[200],
-            },
-            text1: {
-              default: colors.tertiaryBlack[600],
-            },
-            text2: {
-              default: colors.tertiaryBlack[500],
             },
           }),
     },
@@ -166,22 +146,3 @@ export const themeSettings = (mode) => {
     },
   };
 };
-
-// export const ColorModeContext = createContext({
-//   toggleColorMode: () => {},
-// });
-
-// export const useMode = () => {
-//   const [mode, setMode] = useState("dark");
-
-//   const colorMode = useMemo(
-//     () => ({
-//       toggleColorMode: () =>
-//         setMode((prev) => (prev === "light" ? "dark" : "light")),
-//     }),
-//     []
-//   );
-
-//   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
-//   return [theme, colorMode];
-// };
