@@ -4,6 +4,8 @@ import { Outlet } from "react-router";
 import Navbar from "../../components/Navbar";
 
 const Layout = () => {
+  const isNonMobile = useMediaQuery("(min-width: 600px)");
+  
   return <Box 
     sx={{
       width:'100%',
