@@ -87,7 +87,7 @@ export const themeSettings = (mode) => {
               primary: colors.secondaryGrey[200],
             },
             background: {
-              default: colors.secondaryGrey[800],
+              default: colors.tertiaryBlack[400],
             },
           } : {
             primary: {
