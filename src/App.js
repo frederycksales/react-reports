@@ -4,8 +4,8 @@ import { createTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { themeSettings } from "./theme";
-import Layout from "./scenes/dashboard"
-import Dashboard from "./scenes/dashboard";
+import Layout from "./pages/layout"
+import Dashboard from "./pages/dashboard";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
