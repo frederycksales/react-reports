@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Box,
-  Divider,
   Drawer,
   IconButton,
   List,
@@ -13,8 +12,8 @@ import {
   useTheme,
 } from "@mui/material";
 import {
-  SettingsOutlined,
   HomeOutlined,
+  ReportProblemOutlined,
   ChevronLeft,
   ChevronRightOutlined,
 } from "@mui/icons-material";
@@ -26,6 +25,10 @@ const navItems = [
   {
     text: "Dashboard",
     icon: <HomeOutlined />,
+  },
+  {
+    text: "Reports",
+    icon: <ReportProblemOutlined />,
   },
 ];
 
