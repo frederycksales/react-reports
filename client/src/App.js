@@ -4,7 +4,7 @@ import { createTheme } from "@mui/material/styles";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { themeSettings } from "./theme";
-import Layout from "./pages/layout"
+import Layout from "./pages/layout";
 import Dashboard from "./pages/dashboard";
 import Reports from "./pages/reports";
 
@@ -17,11 +17,10 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
-            <Route element={<Layout />}>
-              <Route path="/" element={<Navigate to="/dashboard" replace />}>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/reports" element={<Reports />} />
-              </Route>
             </Route>
           </Routes>
         </ThemeProvider>

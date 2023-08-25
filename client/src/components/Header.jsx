@@ -4,7 +4,7 @@ import React from "react";
 const Header = ({ title, subtitle }) => {
   const theme = useTheme();
   return (
-    <Box>
+    <Box p={1}>
       <Typography
         variant="h2"
         color={theme.palette.text.primary}
