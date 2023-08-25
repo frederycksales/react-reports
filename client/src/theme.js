@@ -73,45 +73,44 @@ export const themeSettings = (mode) => {
             secondary: {
               main: colors.secondaryGrey[700],
             },
-            neutral: {
-              main: colors.tertiaryBlack[500],
-            },
-            warmAccent: {
-              dark: colors.accentOrange[700],
+            warning: {
+              dark: colors.accentOrange[600],
               main: colors.accentOrange[500],
-              light: colors.accentOrange[400],
+              light: colors.accentOrange[300],
             },
-            coolAccent: {
-              dark: colors.accentCyan[700],
+            info: {
+              dark: colors.accentCyan[600],
               main: colors.accentCyan[500],
-              light: colors.accentCyan[400],
+              light: colors.accentCyan[300],
+            },
+            text: {
+              default: colors.secondaryGrey[200],
             },
             background: {
               default: colors.tertiaryBlack[800],
             },
-          }
-        : {
+          } : {
             primary: {
               main: colors.primaryBlue[500],
             },
             secondary: {
               main: colors.secondaryGrey[300],
             },
-            neutral: {
-              main: colors.tertiaryBlack[500],
-            },
-            warmAccent: {
-              dark: colors.accentOrange[600],
+            warning: {
+              dark: colors.accentOrange[700],
               main: colors.accentOrange[500],
-              light: colors.accentOrange[300],
+              light: colors.accentOrange[400],
             },
-            coolAccent: {
-              dark: colors.accentCyan[600],
+            info: {
+              dark: colors.accentCyan[700],
               main: colors.accentCyan[500],
-              light: colors.accentCyan[300],
+              light: colors.accentCyan[400],
+            },
+            text: {
+              default: colors.secondaryGrey[200],
             },
             background: {
-              default: colors.secondaryGrey[200],
+              default: colors.tertiaryBlack[800],
             },
           }),
     },
