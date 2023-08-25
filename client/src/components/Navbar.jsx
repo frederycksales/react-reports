@@ -23,6 +23,7 @@ import {
   MenuItem,
   useTheme,
 } from "@mui/material";
+import { red } from "@mui/material/colors";
 
 const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
   const dispatch = useDispatch();
@@ -34,7 +35,7 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
     <AppBar
       sx={{
         position: "static",
-        background: colors.primary.main,
+        background: colors.secondary.main,
         boxShadow: "none",
       }}
     >
@@ -45,7 +46,7 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
             <MenuIcon />
           </IconButton>
           <FlexBetween
-            backgroundColor={theme.palette.background.default}
+            backgroundColor={theme.palette.primary.light}
             borderRadius="9px"
             gap="3rem"
             p="0.1rem 1.5rem"

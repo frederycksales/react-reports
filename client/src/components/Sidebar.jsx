@@ -55,8 +55,8 @@ const Sidebar = ({
           sx={{
             width: drawerWidth,
             "& .MuiDrawer-paper": {
-              color: theme.palette.common.white,
-              backgroundColor: theme.palette.background,
+              color: theme.palette.secondary.contrastText,
+              backgroundColor: theme.palette.secondary.main,
               boxSixing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
@@ -65,7 +65,7 @@ const Sidebar = ({
         >
           <Box width="100%">
             <Box m="1.5rem 2rem 2rem 3rem">
-              <FlexBetween color={theme.palette.neutral.dark}>
+              <FlexBetween color={theme.palette.secondary.contrastText}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold">
                     IRT - Incident Reports Tracker
@@ -100,12 +100,12 @@ const Sidebar = ({
                       sx={{
                         backgroundColor:
                           active === lcText
-                            ? theme.palette.secondary[300]
+                            ? theme.palette.secondary.light
                             : "transparent",
                         color:
                           active === lcText
-                            ? theme.palette.primary[600]
-                            : theme.palette.secondary[100],
+                            ? theme.palette.secondary.contrastText
+                            : theme.palette.secondary.contrastText,
                       }}
                     >
                       <ListItemIcon
@@ -113,8 +113,8 @@ const Sidebar = ({
                           ml: "2rem",
                           color:
                             active === lcText
-                              ? theme.palette.primary[600]
-                              : theme.palette.secondary[200],
+                              ? theme.palette.secondary.contrastText
+                              : theme.palette.secondary.contrastText,
                         }}
                       >
                         {icon}

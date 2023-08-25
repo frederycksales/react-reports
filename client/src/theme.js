@@ -71,7 +71,7 @@ export const themeSettings = (mode) => {
               main: colors.primaryBlue[500],
             },
             secondary: {
-              main: colors.secondaryGrey[700],
+              main: colors.secondaryGrey[900],
             },
             warning: {
               dark: colors.accentOrange[600],
@@ -84,17 +84,17 @@ export const themeSettings = (mode) => {
               light: colors.accentCyan[300],
             },
             text: {
-              default: colors.secondaryGrey[200],
+              primary: colors.secondaryGrey[200],
             },
             background: {
-              default: colors.tertiaryBlack[800],
+              default: colors.secondaryGrey[800],
             },
           } : {
             primary: {
-              main: colors.primaryBlue[500],
+              main: colors.primaryBlue[400],
             },
             secondary: {
-              main: colors.secondaryGrey[300],
+              main: colors.secondaryGrey[600],
             },
             warning: {
               dark: colors.accentOrange[700],
@@ -107,10 +107,10 @@ export const themeSettings = (mode) => {
               light: colors.accentCyan[400],
             },
             text: {
-              default: colors.secondaryGrey[200],
+              primary: colors.tertiaryBlack[600],
             },
             background: {
-              default: colors.tertiaryBlack[800],
+              default: colors.secondaryGrey[400],
             },
           }),
     },
