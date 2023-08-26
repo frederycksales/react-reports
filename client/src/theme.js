@@ -91,7 +91,7 @@ export const themeSettings = (mode) => {
             },
           } : {
             primary: {
-              main: colors.primaryBlue[300],
+              main: colors.primaryBlue[100],
             },
             secondary: {
               main: colors.secondaryGrey[600],

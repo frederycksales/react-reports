@@ -48,9 +48,19 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
             gap="3rem"
             p="0.1rem 1.5rem"
           >
-            <InputBase placeholder="Pesquisar..." />
+            <InputBase 
+              sx={{
+                '& .MuiInputBase-input':{
+                  '&::placeholder':{
+                    color: theme.palette.primary.contrastText,
+                    fontWeight: 'bold',
+                    fontFamily: ["Poppins", "sans-serif"].join(","),
+                  }
+                }
+              }}
+              placeholder="Pesquisar..." />
             <IconButton>
-              <Search />
+              <Search sx={{color: theme.palette.primary.contrastText}} />
             </IconButton>
           </FlexBetween>
         </FlexBetween>

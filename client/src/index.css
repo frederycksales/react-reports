@@ -17,6 +17,3 @@ main,
   position: relative;
 }
 
-.inputBase-placeholder::placeholder {
-  color: #d0d0d0;
-}
