@@ -116,7 +116,7 @@ export const themeSettings = (mode) => {
               secondary: colors.primaryBlue[400],
             },
             background: {
-              default: colors.secondaryGrey[400],
+              default: colors.secondaryGrey[300],
             },
           }),
     },
