@@ -104,10 +104,10 @@ const Sidebar = ({
                       ":hover": {
                         backgroundColor: theme.palette.primary.light,
                         "& .MuiListItemButton-root": {
-                          color: theme.palette.primary.contrastText,
+                          color: theme.palette.text.secondary,
                         },
                         "& .MuiListItemIcon-root": {
-                          color: theme.palette.primary.contrastText,
+                          color: theme.palette.text.secondary,
                         },
                       },
                     }}

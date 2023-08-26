@@ -87,18 +87,19 @@ export const themeSettings = (mode) => {
             },
             text: {
               primary: colors.secondaryGrey[200],
+              secondary: colors.primaryBlue[100],
             },
             background: {
               default: colors.tertiaryBlack[400],
             },
           } : {
             primary: {
-              light: colors.primaryBlue[100],
+              light: colors.primaryBlue[200],
               main: colors.primaryBlue[400],
               dark: colors.primaryBlue[400],
             },
             secondary: {
-              main: colors.secondaryGrey[600],
+              main: colors.secondaryGrey[500],
             },
             warning: {
               dark: colors.accentOrange[700],
@@ -112,6 +113,7 @@ export const themeSettings = (mode) => {
             },
             text: {
               primary: colors.tertiaryBlack[600],
+              secondary: colors.primaryBlue[400],
             },
             background: {
               default: colors.secondaryGrey[400],
