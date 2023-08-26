@@ -67,7 +67,7 @@ const Sidebar = ({
           }}
         >
           <Box width="100%">
-            <Box m="1.5rem 2rem 2rem 2rem">
+            <Box m="1.5rem 2rem 2rem 2.5rem">
               <FlexBetween color={theme.palette.secondary.contrastText}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
                   <Typography variant="h4" fontWeight="bold" align="center">
