@@ -62,7 +62,7 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
               sx={{
                 '& .MuiInputBase-input':{
                   '&::placeholder':{
-                    color: theme.palette.secondary.contrastText,
+                    color: theme.palette.text.secondary,
                     fontWeight: 'bold',
                     fontFamily: ["Poppins", "sans-serif"].join(","),
                   }
