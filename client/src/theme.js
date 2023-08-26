@@ -92,9 +92,10 @@ export const themeSettings = (mode) => {
             background: {
               default: colors.tertiaryBlack[400],
             },
-          } : {
+          }
+        : {
             primary: {
-              light: colors.primaryBlue[200],
+              light: colors.primaryBlue[100],
               main: colors.primaryBlue[400],
               dark: colors.primaryBlue[400],
             },
@@ -147,6 +148,10 @@ export const themeSettings = (mode) => {
       h6: {
         fontFamily: ["Poppins", "sans-serif"].join(","),
         fontSize: 14,
+      },
+      button: {
+        fontFamily: ["Poppins", "sans-serif"].join(","),
+        fontSize: 18,
       },
     },
   };
