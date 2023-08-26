@@ -68,7 +68,9 @@ export const themeSettings = (mode) => {
       ...(mode === "dark"
         ? {
             primary: {
-              main: colors.primaryBlue[500],
+              light: colors.primaryBlue[400],
+              main: colors.primaryBlue[400],
+              dark: colors.primaryBlue[600],
             },
             secondary: {
               main: colors.secondaryGrey[900],
@@ -91,7 +93,9 @@ export const themeSettings = (mode) => {
             },
           } : {
             primary: {
-              main: colors.primaryBlue[100],
+              light: colors.primaryBlue[100],
+              main: colors.primaryBlue[400],
+              dark: colors.primaryBlue[400],
             },
             secondary: {
               main: colors.secondaryGrey[600],

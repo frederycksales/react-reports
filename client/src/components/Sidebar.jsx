@@ -48,7 +48,7 @@ const Sidebar = ({
   }, [pathname]);
 
   return (
-    <Box component="nav" >
+    <Box component="nav">
       {isSidebarOpen && (
         <Drawer
           open={isSidebarOpen}
@@ -67,11 +67,14 @@ const Sidebar = ({
           }}
         >
           <Box width="100%">
-            <Box m="1.5rem 2rem 2rem 3rem">
+            <Box m="1.5rem 2rem 2rem 2rem">
               <FlexBetween color={theme.palette.secondary.contrastText}>
                 <Box display="flex" alignItems="center" gap="0.5rem">
-                  <Typography variant="h4" fontWeight="bold">
-                    IRT - Incident Reports Tracker
+                  <Typography variant="h4" fontWeight="bold" align="center">
+                    IRT
+                  </Typography>
+                  <Typography variant="h6" align="center">
+                    Incident Reports Tracker
                   </Typography>
                 </Box>
                 {!isNonMobile && (
@@ -86,7 +89,7 @@ const Sidebar = ({
               {navItems.map(({ text, icon }) => {
                 if (!icon) {
                   return (
-                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem"}}>
+                    <Typography key={text} sx={{ m: "2rem 0 1rem 1.5rem" }}>
                       {text}
                     </Typography>
                   );
@@ -94,7 +97,21 @@ const Sidebar = ({
                 const lcText = text.toLowerCase();
 
                 return (
-                  <ListItem key={text} disablePadding>
+                  <ListItem
+                    key={text}
+                    disablePadding
+                    sx={{
+                      ":hover": {
+                        backgroundColor: theme.palette.primary.light,
+                        "& .MuiListItemButton-root": {
+                          color: theme.palette.primary.contrastText,
+                        },
+                        "& .MuiListItemIcon-root": {
+                          color: theme.palette.primary.contrastText,
+                        },
+                      },
+                    }}
+                  >
                     <ListItemButton
                       onClick={() => {
                         navigate(`/${lcText}`);
@@ -103,21 +120,21 @@ const Sidebar = ({
                       sx={{
                         backgroundColor:
                           active === lcText
-                            ? theme.palette.secondary.light
+                            ? theme.palette.primary.dark
                             : "transparent",
                         color:
                           active === lcText
-                            ? theme.palette.secondary.contrastText
-                            : theme.palette.secondary.contrastText,
+                            ? theme.palette.primary.contrastText
+                            : theme.palette.primary.main,
                       }}
                     >
                       <ListItemIcon
                         sx={{
-                          ml: "2rem",
+                          ml: "0.5rem",
                           color:
                             active === lcText
-                              ? theme.palette.secondary.contrastText
-                              : theme.palette.secondary.contrastText,
+                              ? theme.palette.primary.contrastText
+                              : theme.palette.primary.main,
                         }}
                       >
                         {icon}
