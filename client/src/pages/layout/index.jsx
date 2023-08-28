@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Box,useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 import { Outlet } from "react-router";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
-import FloatingButton from "../../components/FloatingButton";
-import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+import NewReportButton from "../../components/NewReportButton";
 
 const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
@@ -12,17 +11,17 @@ const Layout = () => {
 
   return <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
     <Sidebar
-        isNonMobile={isNonMobile}
-        drawerWidth="200px"
-        isSidebarOpen={isSidebarOpen}
-        setIsSidebarOpen={setIsSidebarOpen}
-      />
+      isNonMobile={isNonMobile}
+      drawerWidth="200px"
+      isSidebarOpen={isSidebarOpen}
+      setIsSidebarOpen={setIsSidebarOpen}
+    />
     <Box flexGrow={1}>
-      <Navbar 
+      <Navbar
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
       />
-      <FloatingButton text="Novo Chamado" size="small" icon={AddCircleOutlinedIcon} label="Add" color="primary"/>
+      <NewReportButton size="small" label="Add" color="primary" />
       <Outlet />
     </Box>
   </Box>;
