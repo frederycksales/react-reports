@@ -2,12 +2,19 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { TextField, Button, Box } from '@mui/material';
 
-const NewReportForm = ({ onSubmit }) => {
+const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
+    const handleFormSubmit = (data) => {
+        console.log(data);
+        if (externalOnSubmit) {
+            externalOnSubmit(data);
+        }
+    };
+
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Box mb={2}>
+        <form onSubmit={handleSubmit(handleFormSubmit)}>
+            <Box m={2}>
                 <TextField
                     fullWidth
                     label="Nome do Relatório"
@@ -16,6 +23,8 @@ const NewReportForm = ({ onSubmit }) => {
                     helperText={errors.reportName?.message}
                 />
             </Box>
+
+            {/* Adicione outros campos conforme necessário */}
 
             <Box mt={2}>
                 <Button variant="contained" color="primary" type="submit">
@@ -26,4 +35,4 @@ const NewReportForm = ({ onSubmit }) => {
     );
 };
 
-export default NewReportForm
+export default NewReportForm;
