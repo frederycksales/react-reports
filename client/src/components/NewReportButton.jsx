@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Fab, Box, Typography, Dialog, Alert } from '@mui/material';
+import { Fab, Box, Typography, Dialog } from '@mui/material';
 import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+import NewReportForm from './NewReportForm';
 
-const NewReportButton = ({ size = 'medium', color, label, onClick }) => {
+const NewReportButton = ({ size = 'medium', color, label }) => {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
@@ -35,7 +36,7 @@ const NewReportButton = ({ size = 'medium', color, label, onClick }) => {
                 </Fab>
             </Box>
             <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
-                <Typography>Form Aberto</Typography>
+                <NewReportForm/>
             </Dialog>
         </>
     );
