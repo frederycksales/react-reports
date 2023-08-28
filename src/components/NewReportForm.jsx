@@ -1,6 +1,8 @@
-import React from 'react'
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { TextField, Button, Box } from '@mui/material';
 
-const NewReportForm = () => {
+const NewReportForm = ({ onSubmit }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     return (
@@ -14,8 +16,6 @@ const NewReportForm = () => {
                     helperText={errors.reportName?.message}
                 />
             </Box>
-
-            {/* Adicione outros campos conforme necessário */}
 
             <Box mt={2}>
                 <Button variant="contained" color="primary" type="submit">
