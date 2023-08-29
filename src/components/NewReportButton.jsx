@@ -36,7 +36,7 @@ const NewReportButton = ({ size = 'medium', color, label }) => {
                 </Fab>
             </Box>
             <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
-                <NewReportForm/>
+                <NewReportForm />
             </Dialog>
         </>
     );

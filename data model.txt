@@ -1,0 +1,158 @@
+# Documentation for Incident Form
+
+## General Information
+
+1. **Informative Title**
+    - Field: `informTitle`
+    - Input: Concatenation of `offenderType`, `incidentType`, `circuitDesignation`, and other information.
+    
+2. **MK Protocol**
+    - Field: `protocolNumber`
+    - Input: Text Input Field
+    
+3. **Responsible Operator**
+    - Field: `nocOperator`
+    - Input: Dropdown (Options populated with noc team names)
+    
+4. **Responsible Team**
+    - Field: `engineeringTeam`
+    - Input: Dropdown (Options populated with engineering team names)
+    
+5. **Incident Type**
+    - Field: `incidentType`
+    - Input: Dropdown (Options populated with incident types)
+    
+6. **Incident Offender**
+    - Field: `offenderType`
+    - Input: Dropdown (Options populated with offender types)
+    
+7. **Designation of Affected Circuit**
+    - Field: `circuitDesignation`
+    - Input: Dropdown (Options populated with circuit designations)
+    
+8. **Customer Impact Type**
+    - Field: `impactType`
+    - Input: Dropdown (Options populated with impact types)
+    
+9. **Affected Regions**
+    - Field: `affectedRegions`
+    - Input: Multi-select Dropdown (Options populated with region names)
+
+## Time Details
+
+10. **Incident Start Time**
+    - Field: `incidentStart`
+    - Input: Date & Time Picker
+    
+11. **Incident Confirmation Time**
+    - Field: `incidentConfirmationTime`
+    - Input: Date & Time Picker
+    
+12. **Incident End Time**
+    - Field: `incidentEnd`
+    - Input: Date & Time Picker
+    
+13. **Initial Forecast**
+    - Field: `initialForecast`
+    - Input: Date & Time Picker
+    
+14. **Updated Forecast**
+    - Field: `updatedForecast`
+    - Input: Date & Time Picker
+
+## Reports
+
+15. **Initial Report**
+    - Field: `initialReport`
+    - Input: Textarea
+
+16. **Report Updates**
+    - Subfield: `newReport` - Textarea for report updates
+    - Subfield: `reportTime` - Date & Time Picker for update time
+
+## Incident Analysis
+
+17. **RFO of Incident**
+    - Field: `rfoDescription`
+    - Input: Text Input Field
+    
+18. **Root Cause of Incident**
+    - Field: `rootCause`
+    - Input: Dropdown (Options populated with root causes)
+
+## Impact Metrics
+
+19. **Details of Impact**
+    - Subfield: `BL` - Range input for Broadband (Banda Larga) clients affected
+    - Subfield: `Dedicated` - Range input for Dedicated clients affected
+    - Subfield: `totalAffectedCustomers` - Range input for total customers affected
+    - Subfield: `severity` - Calculated/Determined by the range of total clients affected
+
+## Carrier Information
+
+20. **Details of the Carrier**
+    - Subfield: `responsibleCarrier` - Dropdown (Options populated with carriers)
+    - Subfield: `carrierCircuit` - Dropdown (Options populated with carrier circuits)
+    - Subfield: `carrierProtocol` - Text Input Field
+    - Subfield: `carrierAttendant` - Text Input Field
+
+## Status
+
+21. **Statistics/Status**
+    - Field: `stats`
+    - Input: Checkbox or Toggle (Open/Closed or True/False)
+
+
+========================================================================================================
+
+
+{
+    "informTitle": "{offenderType}{incidentType}{circuitDesignation}",
+    "protocolNumber": "",
+    "nocOperator": "Dropdown value from list of noc team names",
+    "engineeringTeam": "Dropdown value from list of engineering team names",
+    "incidentType": "Dropdown value from list of incident types",
+    "offenderType": "Dropdown value from list of offender types",
+    "circuitDesignation": "Dropdown value from list of circuit designations",
+    "impactType": "Dropdown value from list of impact types",
+    "affectedRegions": ["Multi-select dropdown values from list of region names"],
+
+    "timeDetails": {
+        "incidentStart": "Date & Time value",
+        "incidentConfirmationTime": "Date & Time value",
+        "incidentEnd": "Date & Time value",
+        "initialForecast": "Date & Time value",
+        "updatedForecast": "Date & Time value"
+    },
+
+    "reports": {
+        "initialReport": "",
+        "reportUpdates": [
+            {
+                "newReport": "",
+                "reportTime": "Date & Time value"
+            }
+        ]
+    },
+
+    "incidentAnalysis": {
+        "rfoDescription": "",
+        "rootCause": "Dropdown value from list of root causes"
+    },
+
+    "impactMetrics": {
+        "BL": "Range value for Broadband (Banda Larga) clients affected",
+        "Dedicated": "Range value for Dedicated clients affected",
+        "totalAffectedCustomers": "Range value for total customers affected",
+        "severity": "Value determined by the range of total clients affected"
+    },
+
+    "carrierInformation": {
+        "responsibleCarrier": "Dropdown value from list of carriers",
+        "carrierCircuit": "Dropdown value from list of carrier circuits",
+        "carrierProtocol": "",
+        "carrierAttendant": ""
+    },
+
+    "stats": "Checkbox or Toggle value (Open/Closed or True/False)"
+}
