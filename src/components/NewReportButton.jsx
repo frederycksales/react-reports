@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Fab, Box, Typography, Dialog } from '@mui/material';
-import AddCircleOutlinedIcon from '@mui/icons-material/AddCircleOutlined';
+import { AddCircleOutlined } from '@mui/icons-material';
 import NewReportForm from './NewReportForm';
 
 const NewReportButton = ({ size = 'medium', color, label }) => {
@@ -22,7 +22,7 @@ const NewReportButton = ({ size = 'medium', color, label }) => {
                     size={size}
                     color={color}
                     aria-label={label}
-                    onClick={handleOpen} // alterado para handleOpen em vez de onClick
+                    onClick={handleOpen}
                     sx={{
                         display: 'flex',
                         flexDirection: 'row',
@@ -31,7 +31,7 @@ const NewReportButton = ({ size = 'medium', color, label }) => {
                         alignItems: 'center'
                     }}
                 >
-                    <Box pr={1}><AddCircleOutlinedIcon sx={{ fontSize: 30, mt: "8px" }} /></Box>
+                    <Box pr={1}><AddCircleOutlined sx={{ fontSize: 30, mt: "8px" }} /></Box>
                     <Typography variant="button" fontFamily="Poppins">Novo Chamado</Typography>
                 </Fab>
             </Box>
