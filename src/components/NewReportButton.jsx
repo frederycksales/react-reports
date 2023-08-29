@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Fab, Box, Typography, Dialog } from '@mui/material';
+import { Fab, Box, Typography, Dialog, DialogActions, Button } from '@mui/material';
 import { AddCircleOutlined } from '@mui/icons-material';
 import NewReportForm from './NewReportForm';
 
-const NewReportButton = ({ size = 'medium', color, label }) => {
+const NewReportButton = ({ color, label }) => {
     const [open, setOpen] = useState(false);
 
     const handleOpen = () => {
@@ -19,7 +19,7 @@ const NewReportButton = ({ size = 'medium', color, label }) => {
             <Box sx={{ position: 'fixed', right: 16, bottom: 16 }}>
                 <Fab
                     variant="extended"
-                    size={size}
+                    size="medium"
                     color={color}
                     aria-label={label}
                     onClick={handleOpen}
@@ -35,8 +35,23 @@ const NewReportButton = ({ size = 'medium', color, label }) => {
                     <Typography variant="button" fontFamily="Poppins">Novo Chamado</Typography>
                 </Fab>
             </Box>
-            <Dialog open={open} onClose={handleClose} fullWidth maxWidth="sm">
+            <Dialog
+                open={open}
+                onClose={(event, reason) => {
+                    if (reason !== 'backdropClick') {
+                        handleClose();
+                    }
+                }}
+                fullWidth
+                maxWidth="sm"
+                disableEscapeKeyDown
+            >
                 <NewReportForm />
+                <DialogActions>
+                    <Button onClick={handleClose} color="primary">
+                        Close
+                    </Button>
+                </DialogActions>
             </Dialog>
         </>
     );

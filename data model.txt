@@ -12,8 +12,7 @@
     
 3. **Responsible Operator**
     - Field: `nocOperator`
-    - Input: Dropdown (Options populated with noc team names)
-    
+
 4. **Responsible Team**
     - Field: `engineeringTeam`
     - Input: Dropdown (Options populated with engineering team names)
@@ -155,4 +154,39 @@
     },
 
     "stats": "Checkbox or Toggle value (Open/Closed or True/False)"
+}
+
+
+
+{        
+    // General Information
+    "informTitle": "[Concat of 'offenderType', 'incidentType', 'circuitDesignation' & additional information]",
+    "protocolNumber": "[Text Input Field]",
+    "nocOperator": "[Dropdown selection from a list of NOC team members]",
+    "engineeringTeam": "[Dropdown selection from a list of engineering teams]",
+    "incidentType": "[Dropdown selection from predefined incident types]",
+    "offenderType": "[Dropdown selection from predefined offender types]",
+    "circuitDesignation": "[Dropdown selection from a list of circuit designations]",
+    "impactType": "[Dropdown selection from predefined impact types]",
+    "affectedRegions": "[Multi-select dropdown from a list of regions]",
+
+    // Time Details
+    "incidentStart": {"$date": "[Date & Time when the incident began]"},
+    "incidentConfirmationTime": {"$date": "[Date & Time when the incident was confirmed]"},
+    "initialForecast": {"$date": "[Preliminary estimated date & time for resolution]"},
+
+    // Initial Report
+    "initialReport": "[Textarea with a brief description of the incident]",
+
+    // Incident Analysis
+    "rfoDescription": "[Optional: Immediate known reason for the outage]",
+
+    // Carrier Information
+    "carrierDetails": {
+        "responsibleCarrier": "[Dropdown selection from a list of carriers]",
+        "carrierCircuit": "[Dropdown selection from a list of carrier circuits]",
+        "carrierProtocol": "[Text Input Field]",
+        "carrierAttendant": "[Text Input Field]"
+    }
+
 }

@@ -1,6 +1,6 @@
 export const colorTokens = () => ({
   primaryBlue: {
-    100: "#cce5ff",
+    100: "#e4ecf5",
     200: "#99caff",
     300: "#66b0ff",
     400: "#3395ff",
@@ -69,8 +69,8 @@ export const themeSettings = (mode) => {
         ? {
             primary: {
               light: colors.primaryBlue[400],
-              main: colors.primaryBlue[400],
-              dark: colors.primaryBlue[600],
+              main: colors.primaryBlue[500],
+              dark: colors.primaryBlue[400],
             },
             secondary: {
               main: colors.secondaryGrey[900],
@@ -96,8 +96,8 @@ export const themeSettings = (mode) => {
         : {
             primary: {
               light: colors.primaryBlue[100],
-              main: colors.primaryBlue[400],
-              dark: colors.primaryBlue[400],
+              main: colors.primaryBlue[500],
+              dark: colors.primaryBlue[600],
             },
             secondary: {
               main: colors.secondaryGrey[500],
@@ -114,7 +114,7 @@ export const themeSettings = (mode) => {
             },
             text: {
               primary: colors.tertiaryBlack[600],
-              secondary: colors.primaryBlue[400],
+              secondary: colors.primaryBlue[500],
             },
             background: {
               default: colors.secondaryGrey[300],

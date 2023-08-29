@@ -10,6 +10,7 @@ import {
   ListItemText,
   Typography,
   useTheme,
+  Slide,
 } from "@mui/material";
 import {
   HomeOutlined,
@@ -48,7 +49,7 @@ const Sidebar = ({
   }, [pathname]);
 
   return (
-    <Box component="nav">
+    <Box component="nav" >
       {isSidebarOpen && (
         <Drawer
           open={isSidebarOpen}
@@ -86,7 +87,8 @@ const Sidebar = ({
             </Box>
 
             <List>
-              {navItems.map(({ text, icon }) => {
+              {navItems.map(({ text, icon, children }) => {
+
                 if (!icon) {
                   return (
                     <Typography key={text} sx={{ m: "2rem 0 1rem 1.5rem" }}>
@@ -148,6 +150,9 @@ const Sidebar = ({
                 );
               })}
             </List>
+            <Box sx={{ position: 'fixed', left: 16, bottom: 16 }} >
+              <Typography variant="caption">Version 0.9</Typography>
+            </Box>
           </Box>
         </Drawer>
       )}
