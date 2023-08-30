@@ -4,8 +4,11 @@ import { Grid, TextField, Button, Box, Typography, useTheme, FormControlLabel, C
 import Header from "../components/Header";
 
 const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const [isTerceiro, setIsTerceiro] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const [isBandaLarga, setIsBandaLarga] = useState(false);
+    const [isDedicados, setIsDedicados] = useState(false);
+    const impactType = watch('impactType', '');
     const theme = useTheme();
 
     const handleFormSubmit = (data) => {
@@ -29,7 +32,7 @@ const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
                     Informações do Chamado
                 </Typography>
             </Box>
-            <Grid container justifyContent="space-between"  spacing={1} px={3} py={2}>
+            <Grid container justifyContent="space-between" spacing={1} px={3} py={2}>
                 <Grid item direction="column" xs={6} px={2}>
                     <Grid item xs={4} pb={2}>
                         <TextField
@@ -78,15 +81,6 @@ const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
                                     backgroundColor: theme.palette.primary.main,
                                     borderRadius: '50%',
                                 },
-                                '& input[type="datetime-local"]': {
-                                    color: "transparent",
-                                    '&:focus': {
-                                        color: theme.palette.text.primary,
-                                    },
-                                    '&:valid': {
-                                        color: theme.palette.text.primary,
-                                    }
-                                }
                             })}
                         />
                     </Grid>
@@ -124,6 +118,72 @@ const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
                     </Grid>
                 </Grid>
             </Grid>
+            {impactType && impactType !== 'Nenhum' && (
+                <Grid item spacing={2} xs={6} px={2} py={1}>
+                    <Box px={2}
+                        sx={{
+                            borderBottom: `1px solid ${theme.palette.primary.main}`,
+                        }}
+                    >
+                        <Typography fontSize={18}>
+                            Detalhes do Impacto
+                        </Typography>
+                    </Box>
+                    <Grid container justifyContent="flex-start" alignItems="center" spacing={1} px={3} py={2}>
+                        <Grid item xs={12} px={4}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={isBandaLarga}
+                                        onChange={e => setIsBandaLarga(e.target.checked)}
+                                        name="isBandaLarga"
+                                    />
+                                }
+                                label="Impacto cliente Banda Larga (BL)"
+                            />
+                        </Grid>
+
+                        {isBandaLarga && (
+                            <Grid item xs={4} pb={1}>
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    label="Clientes Banda Larga afetados"
+                                    {...register("broadBand", { required: "This field is required" })}
+                                    error={!!errors.broadBand}
+                                    helperText={errors.broadBand?.message}
+                                />
+                            </Grid>
+                        )}
+
+                        <Grid item xs={12} px={4}>
+                            <FormControlLabel
+                                control={
+                                    <Checkbox
+                                        checked={isDedicados}
+                                        onChange={e => setIsDedicados(e.target.checked)}
+                                        name="isDedicados"
+                                    />
+                                }
+                                label="Impacto cliente Dedicados (B2B)"
+                            />
+                        </Grid>
+
+                        {isDedicados && (
+                            <Grid item xs={4} pb={1}>
+                                <TextField
+                                    fullWidth
+                                    variant='outlined'
+                                    label="Clientes Dedicados afetados"
+                                    {...register("dedicated", { required: "This field is required" })}
+                                    error={!!errors.dedicated}
+                                    helperText={errors.dedicated?.message}
+                                />
+                            </Grid>
+                        )}
+                    </Grid>
+                </Grid>
+            )}
             <Grid item xs={12} px={4}>
                 <FormControlLabel
                     control={
@@ -148,7 +208,7 @@ const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
                         </Typography>
                     </Box>
                     <Grid container justifyContent="space-between" alignItems="center" spacing={1} px={3} py={2}>
-                        <Grid item xs={6} spacing={2}pb={1}>
+                        <Grid item xs={6} spacing={2} pb={1}>
                             <TextField
                                 fullWidth
                                 variant='outlined'
@@ -191,6 +251,28 @@ const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
                     </Grid>
                 </Grid>
             )}
+            <Grid container direction="column" justifyContent="flex-start" spacing={1} px={3} py={2}>
+                <Box px={2}
+                    sx={{
+                        borderBottom: `1px solid ${theme.palette.primary.main}`,
+                    }}
+                >
+                    <Typography fontSize={18}>
+                        Relato Inicial
+                    </Typography>
+                </Box>
+                <Grid item xs={6} pb={1}>
+                    <TextField
+                        fullWidth
+                        variant='outlined'
+                        rows={4}
+                        label="Relato Inicial"
+                        {...register("initialReport", { required: "This field is required" })}
+                        error={!!errors.initialReport}
+                        helperText={errors.initialReport?.message}
+                    />
+                </Grid>
+            </Grid>
             <Box mt={2} px={2}>
                 <Button variant="contained" color="primary" type="submit" fullWidth>
                     Submit
