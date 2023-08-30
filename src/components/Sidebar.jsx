@@ -9,8 +9,7 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
-  useTheme,
-  Slide,
+  useTheme
 } from "@mui/material";
 import {
   HomeOutlined,
@@ -47,8 +46,8 @@ const Sidebar = ({
   useEffect(() => {
     setActive(pathname.substring(1));
   }, [pathname]);
-
   return (
+
     <Box component="nav" >
       {isSidebarOpen && (
         <Drawer
@@ -61,12 +60,13 @@ const Sidebar = ({
             "& .MuiDrawer-paper": {
               color: theme.palette.secondary.contrastText,
               backgroundColor: theme.palette.secondary.main,
-              boxSixing: "border-box",
+              boxSizing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
             },
           }}
         >
+
           <Box width="100%">
             <Box m="1.5rem 2rem 2rem 2.5rem">
               <FlexBetween color={theme.palette.secondary.contrastText}>
@@ -87,7 +87,7 @@ const Sidebar = ({
             </Box>
 
             <List>
-              {navItems.map(({ text, icon, children }) => {
+              {navItems.map(({ text, icon }) => {
 
                 if (!icon) {
                   return (
@@ -154,6 +154,7 @@ const Sidebar = ({
               <Typography variant="caption">Version 0.9</Typography>
             </Box>
           </Box>
+
         </Drawer>
       )}
     </Box>

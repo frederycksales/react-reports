@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Box, useMediaQuery } from "@mui/material";
 import { Outlet } from "react-router";
 import Navbar from "../../components/Navbar";
@@ -7,15 +7,17 @@ import NewReportButton from "../../components/NewReportButton";
 
 const Layout = () => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return <Box display={isNonMobile ? "flex" : "block"} width="100%" height="100%">
+    
     <Sidebar
       isNonMobile={isNonMobile}
       drawerWidth="200px"
       isSidebarOpen={isSidebarOpen}
-      setIsSidebarOpen={setIsSidebarOpen}
+      setIsSidebarOpen={setIsSidebarOpen}     
     />
+
     <Box flexGrow={1}>
       <Navbar
         isSidebarOpen={isSidebarOpen}

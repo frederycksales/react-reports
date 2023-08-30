@@ -4,7 +4,6 @@ import {
   DarkModeOutlined,
   Menu as MenuIcon,
   Search,
-  SettingsOutlined,
   NotificationsNoneOutlined,
   PersonOutlined,
 } from "@mui/icons-material";
@@ -13,9 +12,6 @@ import { useDispatch } from "react-redux";
 import { setMode } from "../state";
 import {
   AppBar,
-  Button,
-  Box,
-  Typography,
   IconButton,
   InputBase,
   Toolbar,

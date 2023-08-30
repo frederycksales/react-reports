@@ -4,7 +4,7 @@ import { TextField, Button, Box } from '@mui/material';
 import Header from "../components/Header";
 
 const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
-    const { register, handleSubmit, formState: { errors, reset } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const handleFormSubmit = (data) => {
         console.log(data);
@@ -34,16 +34,9 @@ const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
                     helperText={errors.protocolNumber?.message}
                 />
             </Box>
-
-
             <Box my={2} mx={2}>
                 <Button variant="contained" color="primary" type="submit">
                     Submit
-                </Button>
-            </Box>
-            <Box my={2} mx={2}>
-                <Button variant="contained" color="secondary" onClick={() => reset()}>
-                    Clean
                 </Button>
             </Box>
         </form>
