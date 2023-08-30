@@ -37,13 +37,13 @@ const NewReportButton = ({ color, label }) => {
             </Box>
             <Dialog
                 open={open}
-                onClose={(event, reason) => {
+                onClose={(reason) => {
                     if (reason !== 'backdropClick') {
                         handleClose();
                     }
                 }}
                 fullWidth
-                maxWidth="sm"
+                maxWidth="md"
                 disableEscapeKeyDown
             >
                 <NewReportForm />

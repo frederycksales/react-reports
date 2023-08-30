@@ -1,0 +1,68 @@
+<form onSubmit={handleSubmit(handleFormSubmit)}>
+  <Box mb={2}>
+    <Header title="Abertura de Novo Chamado" align="center" />
+  </Box>
+  <Grid container spacing={2} px={2}>
+    <Grid item xs={6}>
+      <TextField
+        fullWidth
+        label="Protocolo"
+        {...register("protocolNumber", { required: "This field is required" })}
+        error={!!errors.protocolNumber}
+        helperText={errors.protocolNumber?.message}
+      />
+    </Grid>
+    <Grid item xs={6}>
+      <TextField
+        fullWidth
+        label="Equipe"
+        {...register("engineeringTeam", { required: "This field is required" })}
+        error={!!errors.engineeringTeam}
+        helperText={errors.engineeringTeam?.message}
+      />
+    </Grid>
+    <Grid item xs={6}>
+      <TextField
+        fullWidth
+        label="Tipo"
+        {...register("incidentType", { required: "This field is required" })}
+        error={!!errors.incidentType}
+        helperText={errors.incidentType?.message}
+      />
+    </Grid>
+    <Grid item xs={6}>
+      <TextField
+        fullWidth
+        label="Tipo"
+        {...register("incidentType", { required: "This field is required" })}
+        error={!!errors.incidentType}
+        helperText={errors.incidentType?.message}
+      />
+    </Grid>
+    <Grid item xs={6}>
+      <TextField
+        fullWidth
+        label="Ofensor"
+        {...register("offenderType", { required: "This field is required" })}
+        error={!!errors.offenderType}
+        helperText={errors.offenderType?.message}
+      />
+    </Grid>
+    <Grid item xs={12}>
+      <TextField
+        fullWidth
+        label="Designação"
+        {...register("circuitDesignation", {
+          required: "This field is required",
+        })}
+        error={!!errors.circuitDesignation}
+        helperText={errors.circuitDesignation?.message}
+      />
+    </Grid>
+  </Grid>
+  <Box mt={2} px={2}>
+    <Button variant="contained" color="primary" type="submit" fullWidth>
+      Submit
+    </Button>
+  </Box>
+</form>;
