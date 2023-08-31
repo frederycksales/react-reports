@@ -17,3 +17,18 @@ main,
   position: relative;
 }
 
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #d0d0d0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7d7d7d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3395ff;
+}

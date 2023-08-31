@@ -19,6 +19,7 @@ const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
 		handleSubmit,
 		watch,
 		formState: { errors },
+		setValue,
 	} = useForm();
 
 	const [impactOptions, setImpactOptions] = useState({
@@ -48,7 +49,9 @@ const NewReportForm = ({ onSubmit: externalOnSubmit }) => {
 			<Box mb={2}>
 				<Header title="Abertura de Novo Chamado" align="center" />
 			</Box>
-			<ReportInformation register={register} errors={errors} />
+
+			<ReportInformation register={register} errors={errors} setValue={setValue} />
+
 			{impactType && impactType !== "Nenhum" && (
 				<ImpactDetails
 					register={register}

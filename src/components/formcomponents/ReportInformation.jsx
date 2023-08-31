@@ -1,16 +1,24 @@
-import { useTheme, Box, Typography, Grid, TextField } from "@mui/material"
-import { DateTimePicker } from "@mui/x-date-pickers";
+import { useState } from "react";
+import { Box, Typography, Grid, TextField } from "@mui/material";
+import { DateTimeField } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 
-
-const ReportInformation = ({ register, errors }) => {
-  const theme = useTheme();
-
-  const [selectedDate, setSelectedDate] = React.useState(dayjs());
+const ReportInformation = ({ register, errors, setValue }) => {
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    register("incidentStart").onChange(date);
+    setValue("incidentStart", date);
+  };
+
+  const [error, setError] = useState(null);
+
+  const handleDateError = (err) => {
+    if (err) {
+      setError("Please select a date-time within the last 4 hours.");
+    } else {
+      setError(null);
+    }
   };
 
   return (
@@ -18,14 +26,15 @@ const ReportInformation = ({ register, errors }) => {
       <Box
         px={2}
         sx={{
-          borderBottom: `1px solid ${theme.palette.primary.main}`,
+          borderBottom: "1px solid",
+          borderColor: "primary.main",
         }}
       >
         <Typography fontSize={18}>Informações do Chamado</Typography>
       </Box>
-      <Grid container justifyContent="space-between" spacing={1} px={3} py={2}>
-        <Grid conteiner direction="column" xs={6} px={2}>
-          <Grid item xs={4} pb={2}>
+      <Grid container justifyContent="space-between" spacing={1} sx={{ px: 3, py: 2 }}>
+        <Grid item xs={6} sx={{ px: 2 }}>
+          <Grid item pb={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -37,7 +46,7 @@ const ReportInformation = ({ register, errors }) => {
               helperText={errors.protocolNumber?.message}
             />
           </Grid>
-          <Grid item xs={4} pb={2}>
+          <Grid item pb={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -49,7 +58,7 @@ const ReportInformation = ({ register, errors }) => {
               helperText={errors.circuitDesignation?.message}
             />
           </Grid>
-          <Grid item xs={4} pb={2}>
+          <Grid item pb={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -61,22 +70,28 @@ const ReportInformation = ({ register, errors }) => {
               helperText={errors.engineeringTeam?.message}
             />
           </Grid>
-            
-          {/* <Grid item xs={4} pb={2}>
-            <TextField
+          <Grid item pb={2}>
+            <DateTimeField
               fullWidth
               variant="outlined"
+              ampm={false}
+              format="DD/MM/YYYY HH:mm"
+              minutesStep={1}
+              maxDateTime={dayjs()}
+              minDateTime={dayjs().subtract(4, "hour")}
+              keyboard={true}
               label="Início do Incidente"
-              {...register("incidentStart", {
-                required: "This field is required",
-              })}
-              error={!!errors.incidentStart}
-              helperText={errors.incidentStart?.message}
+              value={selectedDate}
+              onChange={handleDateChange}
+              onError={handleDateError}
+              helperText={error}
+              error={Boolean(error)} 
+              onSelectedSectionsChange={() => setSelectedDate(dayjs())}
             />
-          </Grid> */}
+          </Grid>
         </Grid>
-        <Grid conteiner direction="column" xs={6} px={2}>
-          <Grid item xs={4} pb={2}>
+        <Grid item xs={6} sx={{ px: 2 }}>
+          <Grid item pb={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -88,7 +103,7 @@ const ReportInformation = ({ register, errors }) => {
               helperText={errors.incidentType?.message}
             />
           </Grid>
-          <Grid item xs={4} pb={2}>
+          <Grid item pb={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -100,7 +115,7 @@ const ReportInformation = ({ register, errors }) => {
               helperText={errors.offenderType?.message}
             />
           </Grid>
-          <Grid item xs={4} pb={2}>
+          <Grid item pb={2}>
             <TextField
               fullWidth
               variant="outlined"
@@ -115,7 +130,7 @@ const ReportInformation = ({ register, errors }) => {
         </Grid>
       </Grid>
     </>
-  )
-}
+  );
+};
 
-export default ReportInformation
+export default ReportInformation;
