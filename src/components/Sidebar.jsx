@@ -14,8 +14,8 @@ import {
 import {
   HomeOutlined,
   ReportProblemOutlined,
-  ChevronLeft,
   ChevronRightOutlined,
+  Close as CloseIcon
 } from "@mui/icons-material";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -32,12 +32,71 @@ const navItems = [
   },
 ];
 
-const Sidebar = ({
-  drawerWidth,
-  isSidebarOpen,
-  setIsSidebarOpen,
-  isNonMobile,
-}) => {
+const NavList = ({ active, setActive, navigate }) => {
+  const theme = useTheme();
+
+  return (
+    <List>
+      {navItems.map(({ text, icon }) => {
+        const lcText = text.toLowerCase();
+        return (
+          <ListItem
+            disablePadding
+            key={lcText}
+            sx={{
+              ":hover": {
+                backgroundColor: theme.palette.primary.light,
+                "& .MuiListItemButton-root": {
+                  color: theme.palette.text.secondary,
+                },
+                "& .MuiListItemIcon-root": {
+                  color: theme.palette.text.secondary,
+                },
+              },
+            }}
+          >
+            <ListItemButton
+              onClick={() => {
+                navigate(`/${lcText}`);
+                setActive(lcText);
+              }}
+              sx={{
+                backgroundColor:
+                  active === lcText
+                    ? theme.palette.primary.dark
+                    : "transparent",
+                color:
+                  active === lcText
+                    ? theme.palette.primary.contrastText
+                    : theme.palette.primary.main,
+              }}
+            >
+              <ListItemIcon
+                sx={{
+                  ml: "0.5rem",
+                  '& .MuiSvgIcon-root': { fontSize: '28px' },
+                  color:
+                    active === lcText
+                      ? theme.palette.primary.contrastText
+                      : theme.palette.primary.main,
+                }}
+              >
+                {icon}
+              </ListItemIcon>
+              <ListItemText primary={text} sx={{ '& .MuiTypography-root': { fontSize: '18px' } }} />
+              {active === lcText && (
+                <ChevronRightOutlined sx={{ ml: "auto" }} />
+              )}
+            </ListItemButton>
+          </ListItem>
+        );
+      })}
+    </List>
+  );
+};
+
+
+const Sidebar = ({ drawerWidth, isSidebarOpen, setIsSidebarOpen, isNonMobile }) => {
   const { pathname } = useLocation();
   const [active, setActive] = useState("");
   const navigate = useNavigate();
@@ -46,9 +105,9 @@ const Sidebar = ({
   useEffect(() => {
     setActive(pathname.substring(1));
   }, [pathname]);
-  return (
 
-    <Box component="nav" >
+  return (
+    <Box component="nav">
       {isSidebarOpen && (
         <Drawer
           open={isSidebarOpen}
@@ -66,7 +125,6 @@ const Sidebar = ({
             },
           }}
         >
-
           <Box width="100%">
             <Box m="1.5rem 2rem 2rem 2.5rem">
               <FlexBetween color={theme.palette.secondary.contrastText}>
@@ -80,81 +138,16 @@ const Sidebar = ({
                 </Box>
                 {!isNonMobile && (
                   <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-                    <ChevronLeft />
+                    <CloseIcon />
                   </IconButton>
                 )}
               </FlexBetween>
             </Box>
-
-            <List>
-              {navItems.map(({ text, icon }) => {
-
-                if (!icon) {
-                  return (
-                    <Typography key={text} sx={{ m: "2rem 0 1rem 1.5rem" }}>
-                      {text}
-                    </Typography>
-                  );
-                }
-                const lcText = text.toLowerCase();
-
-                return (
-                  <ListItem
-                    key={text}
-                    disablePadding
-                    sx={{
-                      ":hover": {
-                        backgroundColor: theme.palette.primary.light,
-                        "& .MuiListItemButton-root": {
-                          color: theme.palette.text.secondary,
-                        },
-                        "& .MuiListItemIcon-root": {
-                          color: theme.palette.text.secondary,
-                        },
-                      },
-                    }}
-                  >
-                    <ListItemButton
-                      onClick={() => {
-                        navigate(`/${lcText}`);
-                        setActive(lcText);
-                      }}
-                      sx={{
-                        backgroundColor:
-                          active === lcText
-                            ? theme.palette.primary.dark
-                            : "transparent",
-                        color:
-                          active === lcText
-                            ? theme.palette.primary.contrastText
-                            : theme.palette.primary.main,
-                      }}
-                    >
-                      <ListItemIcon
-                        sx={{
-                          ml: "0.5rem",
-                          color:
-                            active === lcText
-                              ? theme.palette.primary.contrastText
-                              : theme.palette.primary.main,
-                        }}
-                      >
-                        {icon}
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                      {active === lcText && (
-                        <ChevronRightOutlined sx={{ ml: "auto" }} />
-                      )}
-                    </ListItemButton>
-                  </ListItem>
-                );
-              })}
-            </List>
-            <Box sx={{ position: 'fixed', left: 16, bottom: 16 }} >
+            <NavList active={active} setActive={setActive} navigate={navigate} />
+            <Box sx={{ position: 'fixed', left: 16, bottom: 16 }}>
               <Typography variant="caption">Version 0.9</Typography>
             </Box>
           </Box>
-
         </Drawer>
       )}
     </Box>
