@@ -58,6 +58,18 @@ export const colorTokens = () => ({
     800: "#0f4f57",
     900: "#08282c",
   },
+
+  accentRed: {
+    100: "#ffe5e5",
+    200: "#ffbdbd",
+    300: "#ff8e8e",
+    400: "#ff5c5c",
+    500: "#ff2929",
+    600: "#e60000",
+    700: "#b20000",
+    800: "#7f0000",
+    900: "#4c0000",
+  },
 });
 
 export const themeSettings = (mode) => {
@@ -68,9 +80,9 @@ export const themeSettings = (mode) => {
       ...(mode === "dark"
         ? {
             primary: {
-              light: colors.primaryBlue[400],
+              light: colors.primaryBlue[600],
               main: colors.primaryBlue[500],
-              dark: colors.primaryBlue[400],
+              dark: colors.primaryBlue[900],
             },
             secondary: {
               main: colors.secondaryGrey[900],
@@ -91,6 +103,11 @@ export const themeSettings = (mode) => {
             },
             background: {
               default: colors.tertiaryBlack[400],
+            },
+            error: {
+              dark: colors.accentRed[700],
+              main: colors.accentRed[500],
+              light: colors.accentRed[400],
             },
           }
         : {
@@ -118,6 +135,11 @@ export const themeSettings = (mode) => {
             },
             background: {
               default: colors.secondaryGrey[300],
+            },
+            error: {
+              dark: colors.accentRed[700],
+              main: colors.accentRed[500],
+              light: colors.accentRed[400],
             },
           }),
     },

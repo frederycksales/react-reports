@@ -79,7 +79,6 @@ const ReportInformation = ({ register, errors, setValue }) => {
               minutesStep={1}
               maxDateTime={dayjs()}
               minDateTime={dayjs().subtract(4, "hour")}
-              keyboard={true}
               label="Início do Incidente"
               value={selectedDate}
               onChange={handleDateChange}
