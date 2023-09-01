@@ -9,9 +9,6 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import Layout from "./pages/layout";
 import Dashboard from "./pages/dashboard";
 import Reports from "./pages/reports";
-import Login from "./pages/login";
-import { AuthProvider } from "./auth-context";
-import ProtectedRoute from "./ProtectRoute";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -20,23 +17,18 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <AuthProvider>
-          <ThemeProvider theme={theme}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <CssBaseline />
-              <Routes>
-                <Route path="/" element={<Layout />}>
-                  <Route index element={<Navigate to="/login" replace />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/reports" element={<Reports />} />
-                  <ProtectedRoute path="/dashboard" element={<Dashboard />} />
-                  <ProtectedRoute path="/reports" element={<Reports />} />
-                </Route>
-              </Routes>
-            </LocalizationProvider>
-          </ThemeProvider>
-        </AuthProvider>
+        <ThemeProvider theme={theme}>
+          <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <CssBaseline />
+            <Routes>
+              <Route path="/" element={<Layout />}>
+                <Route index element={<Navigate to="/dashboard" replace />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/reports" element={<Reports />} />
+              </Route>
+            </Routes>
+          </LocalizationProvider>
+        </ThemeProvider>
       </BrowserRouter>
     </div>
   );
