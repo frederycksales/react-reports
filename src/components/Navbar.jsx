@@ -100,7 +100,6 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                   '& .MuiInputBase-input': {
                     '&::placeholder': {
                       color: theme.palette.text.secondary,
-                      fontWeight: 'bold',
                       fontFamily: ["Poppins", "sans-serif"].join(","),
                     }
                   }

@@ -145,7 +145,7 @@ const Sidebar = ({ drawerWidth, isSidebarOpen, setIsSidebarOpen, isNonMobile }) 
             </Box>
             <NavList active={active} setActive={setActive} navigate={navigate} />
             <Box sx={{ position: 'fixed', left: 16, bottom: 16 }}>
-              <Typography variant="caption">Version 0.9</Typography>
+              <Typography variant="caption">Version: Z3r0</Typography>
             </Box>
           </Box>
         </Drawer>
