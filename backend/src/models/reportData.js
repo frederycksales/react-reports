@@ -49,7 +49,7 @@ const ReportDataSchema = new Schema({
     },
     impactMetrics: {
         broadBand: Number,
-        Dedicated: Number,
+        dedicated: Number,
         severity: String,
         totalAffectedCustomers: Number
     },
@@ -61,6 +61,8 @@ const ReportDataSchema = new Schema({
     },
     networkintervention: String,
     stats: Boolean
+}, {
+    timestamps: true
 });
 
 // os schemas ou models são referentes as coleções que podem ou não já estar criadas no banco de dados.

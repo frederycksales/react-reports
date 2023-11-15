@@ -1,14 +1,26 @@
-import { Router } from 'express';
+import { Router } from "express";
+
+import {
+  createReport,
+  updateReport,
+  getAllReports,
+  getAllOpenedReports,
+  getAllClosedReports,
+  deleteRequest,
+} from "./controllers/ReportsController.js";
+import { registerUser, login } from "./controllers/UsersController.js";
 const routes = Router();
 
-import { createReport, updateReport, getAllReports, getAllOpenedReports, getAllClosedReports, deleteRequest } from './controllers/ReportsController.js';
-
 // Rotas reports
-routes.post('/report', createReport);
-routes.post('/report/:id', updateReport);
-routes.get('/getAllReports', getAllReports);
-routes.get('/getAllOpenedReports', getAllOpenedReports);
-routes.get('/getAllClosedReports', getAllClosedReports);
-routes.delete('/report/:id', deleteRequest);
+routes.post("/report", createReport);
+routes.post("/report/:id", updateReport);
+routes.get("/getAllReports", getAllReports);
+routes.get("/getAllOpenedReports", getAllOpenedReports);
+routes.get("/getAllClosedReports", getAllClosedReports);
+routes.delete("/report/:id", deleteRequest);
+
+// Rotas Users
+routes.post("/user", registerUser);
+routes.post("/login", login);
 
 export default routes;
