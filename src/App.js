@@ -11,8 +11,6 @@ import Layout from "./pages/layout";
 import Dashboard from "./pages/dashboard";
 import Reports from "./pages/reports";
 import ErrorBoundary from "./ErrorBoundary";
-import LoginPage from "./pages/loginpage";
-
 function App() {
   const mode = useSelector((state) => state.global.mode);
   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
@@ -25,7 +23,6 @@ function App() {
             <CssBaseline />
             <ErrorBoundary>
               <Routes>
-                {/* <Route path="/login" element={<LoginPage />} /> */}
                 <Route path="/" element={<Layout />}>
                   <Route index element={<Navigate to="/dashboard" replace />} />
                   <Route path="/dashboard" element={<Dashboard />} />
